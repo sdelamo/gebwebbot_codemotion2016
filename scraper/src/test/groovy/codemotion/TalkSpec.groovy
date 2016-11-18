@@ -1,14 +1,19 @@
 package codemotion
 
+import codemotion.geb.AgendaFetcher
 import spock.lang.Specification
 
 class TalkSpec extends Specification {
-    def "test I can fetch talks"() {
 
+    @SuppressWarnings('Println')
+    def "test I can fetch talks"() {
         when:
-        def talks = [] as Set<Talk>
+        def talks = AgendaFetcher.talks()
+        talks.each { println it }
 
         then:
+        true
         !talks.isEmpty()
     }
+
 }

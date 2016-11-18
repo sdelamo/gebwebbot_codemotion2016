@@ -1,0 +1,26 @@
+repositories {
+    jcenter()
+}
+
+subprojects { project ->
+    apply plugin: 'groovy'
+    apply plugin: 'codenarc'
+
+    dependencies {
+        compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    }
+
+    codenarc {
+        toolVersion = '0.25.2'
+    }
+
+    codenarcMain {
+        ignoreFailures false
+        configFile file("${rootProject.projectDir}/config/codenarc/codenarc.groovy")
+    }
+
+    codenarcTest {
+        ignoreFailures false
+        configFile file("${rootProject.projectDir}/config/codenarc/codenarcTest.groovy")
+    }
+}
