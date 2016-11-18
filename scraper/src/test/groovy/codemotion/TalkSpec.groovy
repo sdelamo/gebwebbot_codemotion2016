@@ -12,7 +12,6 @@ class TalkSpec extends Specification {
         talks.each { println it }
 
         then:
-        true
         !talks.isEmpty()
     }
 
